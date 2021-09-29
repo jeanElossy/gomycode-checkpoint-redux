@@ -10,7 +10,7 @@ const Addtask = () => {
     const [isDone, setIsDone] = useState(false);
     const dispatch = useDispatch();
     const [error, setError] = useState(false);
-    const [filtre, setFiltre] = useState(null, true, false);
+    const [filtre, setFiltre] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,15 +35,17 @@ const Addtask = () => {
         } 
     };
 
-
     const filterTask = (e) => {
         e.preventDefault();
 
-        setFiltre(!filtre);
+        setFiltre({
+            
+        });
+        console.log(filtre)
     };
     
-
     const condFiltre = () => {
+
         switch(filtre) {
             case null:
                 return "All"
@@ -55,7 +57,6 @@ const Addtask = () => {
                 return null
         }
     };
-
 
 
     return (
@@ -136,3 +137,6 @@ const Addtask = () => {
 }
 
 export default Addtask
+
+
+//BIGFLO & OLI : "Je suis" (live @ Hip Hop Symphonique) #HHSYMPHONIQUE
