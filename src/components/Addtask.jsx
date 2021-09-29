@@ -10,7 +10,7 @@ const Addtask = () => {
     const [isDone, setIsDone] = useState(false);
     const dispatch = useDispatch();
     const [error, setError] = useState(false);
-
+    const [filtre, setFiltre] = useState(null, true, false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,6 +34,28 @@ const Addtask = () => {
             alert("Merci de renseigner un titre et une description")
         } 
     };
+
+
+    const filterTask = (e) => {
+        e.preventDefault();
+
+        setFiltre(!filtre);
+    };
+    
+
+    const condFiltre = () => {
+        switch(filtre) {
+            case null:
+                return "All"
+            case true:
+                return "isDone"
+            case false:
+                return "unDone"
+            default:
+                return null
+        }
+    };
+
 
 
     return (
@@ -99,10 +121,14 @@ const Addtask = () => {
                 <div className="mt-5 d-flex gap-3 justify-content-center">
 
                     <button 
-                        className="btn btn-warning text-dark fw-bold"
+                        className={filtre ? "btn btn-warning fw-bold" : "btn btn-primary fw-bold"}
+
+                        onClick={(e) => filterTask(e)}
                     >
-                        filtrer
+                        {condFiltre(filtre)}
+
                     </button>
+
                 </div>
             </div>
         </div>

@@ -95,7 +95,6 @@ const Task = ({ post }) => {
                             <button 
                                 className="btn btn-outline-success"
                                 onClick={(e) => change(e)}
-                                
                             >
                                 isDone
                             </button>
@@ -103,9 +102,8 @@ const Task = ({ post }) => {
                             <button 
                                 className="btn btn-outline-danger"
                                 onClick={(e) => change(e)}
-                                
                             >
-                                noDone
+                                unDone
                             </button>
                         )}
                     </div>
