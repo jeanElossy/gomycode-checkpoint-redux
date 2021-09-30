@@ -5,6 +5,7 @@ export const DELETE_POST = "DELETE_POST";
 export const LINE_THROUGTH = "LINE_THROUGTH";
 
 
+
 // action d'affichage
 const getPost = (data) => {
 
@@ -42,7 +43,6 @@ export const deletePost = (dataId) => {
         payload : { dataId }
     }
 }
-
 
 //action pour faire un toggle sur le trait sur le texte
 export const changeLine = (line) => {

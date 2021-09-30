@@ -38,7 +38,7 @@ const postReducer = ( state = initialState, action ) => {
         case DELETE_POST :
             return state.filter((post) => post.id !== action.payload.dataId)
         
-            
+
         case LINE_THROUGTH:
             return state.map((post) => {
                 if(post.id === action.payload.id) {
@@ -50,8 +50,7 @@ const postReducer = ( state = initialState, action ) => {
                     return post
                 }
             })
-            
-
+        
         default:
             return state
     }
