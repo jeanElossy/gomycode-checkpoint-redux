@@ -1,19 +1,15 @@
 import React from 'react';
 import { useState } from "react"
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../actions/postAction';
 
-const Addtask = () => {
-
-    const posts = useSelector((state) => state.postReducer)
+const Addtask = ({filter, handelFilter}) => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [isDone, setIsDone] = useState(false);
     const dispatch = useDispatch();
     const [error, setError] = useState(false);
-    const [filtre, setFiltre] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,14 +33,6 @@ const Addtask = () => {
             alert("Merci de renseigner un titre et une description")
         } 
     };
-
-    const filterTask = (e) => {
-        e.preventDefault();
-
-        const fil = posts.filter((post) => post.isDone === isDone)
-        setFiltre(fil)
-    };
-    
 
     return (
         <div className="container">
@@ -109,13 +97,11 @@ const Addtask = () => {
                 <div className="mt-5 d-flex gap-3 justify-content-center">
 
                     <button 
-                        className={filtre ? "btn btn-warning fw-bold" : "btn btn-outline-primary text-white fw-bold"}
-                        onClick={(e) => filterTask(e)}
+                        className={filter ? "btn btn-warning fw-bold" : "btn btn-outline-primary text-white fw-bold"}
+                        onClick={handelFilter}
                     >
-                        {filtre ? "isDone" : "unDone"}
+                        {filter ? "isDone" : "unDone"}
                     </button>
-                    
-                    <button className="btn fw-bold ms-4 btn-primary">All</button>
                     
                 </div>
             </div>
