@@ -12,7 +12,7 @@ const DesignCard = () => {
     const handelFilter = () => {
         setfilter(!filter)
     };
-
+    // console.log()
 
     return (
         <div className="container-fluid design--card">
